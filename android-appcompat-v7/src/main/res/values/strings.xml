@@ -3,4 +3,8 @@
     <string name="application">Robolectric</string>
     <string name="menu_item_1">First menu item</string>
     <string name="menu_item_2">Second menu item</string>
+    <string name="drawer_item_1">Drawer Item 1</string>
+    <string name="drawer_item_2">Drawer Item 2</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
 </resources>
