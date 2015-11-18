@@ -25,6 +25,12 @@
             android:name=".service.SampleIntentService"
             android:exported="false" >
         </service>
+
+        <receiver
+            android:name=".receiver.AlarmManagerReceiver"
+            android:enabled="true"
+            android:exported="true" >
+        </receiver>
     </application>
 
 </manifest>
