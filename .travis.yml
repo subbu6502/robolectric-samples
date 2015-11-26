@@ -18,7 +18,3 @@ android:
 script:
     - TERM=dumb ./gradlew -i test
 
-before_install:
-  - pip install codecov
-after_success:
-  - codecov
