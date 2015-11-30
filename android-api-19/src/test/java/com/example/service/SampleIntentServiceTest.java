@@ -19,14 +19,14 @@ import static org.junit.Assert.assertNotSame;
 public class SampleIntentServiceTest {
 
     @Test
-    public void addsDataToSharedPreference(){
+    public void addsDataToSharedPreference() {
         RoboSharedPreferences preferences = (RoboSharedPreferences) RuntimeEnvironment.application
                 .getSharedPreferences("example", Context.MODE_PRIVATE);
-        Intent intent =  new Intent(RuntimeEnvironment.application,SampleIntentService.class);
+        Intent intent = new Intent(RuntimeEnvironment.application, SampleIntentService.class);
         SampleIntentService registrationService = new SampleIntentService();
+
         registrationService.onHandleIntent(intent);
+
         assertNotSame(preferences.getString("SAMPLE_DATA", ""), "");
-
     }
-
 }

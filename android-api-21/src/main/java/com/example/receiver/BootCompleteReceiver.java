@@ -7,8 +7,6 @@ import android.content.Intent;
 import com.example.service.SampleIntentService;
 
 public class BootCompleteReceiver extends BroadcastReceiver {
-    public BootCompleteReceiver() {
-    }
 
     @Override
     public void onReceive(Context context, Intent intent) {

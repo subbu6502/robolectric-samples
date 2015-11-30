@@ -1,5 +1,6 @@
 package com.example.receiver;
 
+import android.app.Application;
 import android.content.Intent;
 
 import com.example.BuildConfig;
@@ -12,6 +13,7 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricGradleTestRunner.class)
@@ -20,11 +22,14 @@ public class AlarmManagerReceiverTest {
 
     @Test
     public void startServiceForTheScheduledAlarm(){
-        Intent expectedService = new Intent(RuntimeEnvironment.application, SampleIntentService.class);
+        Application application = RuntimeEnvironment.application;
+        Intent expectedService = new Intent(application, SampleIntentService.class);
 
         AlarmManagerReceiver alarmManagerReceiver = new AlarmManagerReceiver();
-        alarmManagerReceiver.onReceive(RuntimeEnvironment.application, new Intent());
-        assertEquals(shadowOf(RuntimeEnvironment.application).getNextStartedService().getComponent(),
+        alarmManagerReceiver.onReceive(application, new Intent());
+
+        assertNotNull(shadowOf(application).getNextStartedService());
+        assertEquals(shadowOf(application).getNextStartedService().getComponent(),
                 expectedService.getComponent());
     }
 }

@@ -19,15 +19,12 @@ import static org.junit.Assert.*;
 @Config(constants = BuildConfig.class)
 public class BootCompleteReceiverTest {
 
-    @Before
-    public void setUp() throws Exception {
-        ShadowLog.stream = System.out;
-    }
-
     @Test
     public void registerServiceOnDeviceBootComplete(){
         Intent intent = new Intent(Intent.ACTION_BOOT_COMPLETED);
+
         ShadowApplication application = ShadowApplication.getInstance();
+
         assertTrue("Reboot Listener not registered ",
                 application.hasReceiverForIntent(intent));
     }

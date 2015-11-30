@@ -7,8 +7,6 @@ import android.content.Intent;
 import com.example.service.SampleIntentService;
 
 public class AlarmManagerReceiver extends BroadcastReceiver {
-    public AlarmManagerReceiver() {
-    }
 
     @Override
     public void onReceive(Context context, Intent intent) {

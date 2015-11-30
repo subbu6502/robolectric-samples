@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-
 public class SampleIntentService extends IntentService {
     public SampleIntentService() {
         super("SampleIntentService");

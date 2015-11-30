@@ -26,10 +26,6 @@
             android:exported="false" >
         </service>
 
-        <receiver
-            android:name=".receiver.AlarmManagerReceiver"
-            android:exported="false" >
-        </receiver>
     </application>
 
 </manifest>

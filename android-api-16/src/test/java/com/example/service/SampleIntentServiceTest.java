@@ -24,9 +24,9 @@ public class SampleIntentServiceTest {
                 .getSharedPreferences("example", Context.MODE_PRIVATE);
         Intent intent =  new Intent(RuntimeEnvironment.application,SampleIntentService.class);
         SampleIntentService registrationService = new SampleIntentService();
+
         registrationService.onHandleIntent(intent);
+
         assertNotSame(preferences.getString("SAMPLE_DATA", ""), "");
-
     }
-
 }
