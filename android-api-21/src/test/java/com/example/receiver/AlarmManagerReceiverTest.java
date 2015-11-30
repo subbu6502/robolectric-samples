@@ -25,11 +25,11 @@ public class AlarmManagerReceiverTest {
         Application application = RuntimeEnvironment.application;
         Intent expectedService = new Intent(application, SampleIntentService.class);
         AlarmManagerReceiver alarmManagerReceiver = new AlarmManagerReceiver();
-
         alarmManagerReceiver.onReceive(application, new Intent());
 
-        assertNotNull(shadowOf(application).getNextStartedService());
-        assertEquals(shadowOf(application).getNextStartedService().getComponent(),
+        Intent serviceIntent = shadowOf(application).getNextStartedService();
+        assertNotNull(serviceIntent);
+        assertEquals(serviceIntent.getComponent(),
                 expectedService.getComponent());
     }
 }
