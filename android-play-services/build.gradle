@@ -21,3 +21,38 @@ dependencies {
     testCompile "org.assertj:assertj-core:1.7.0"
     testCompile "org.robolectric:robolectric:${robolectricVersion}"
 }
+
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.7.1+"
+}
+
+def coverageSourceDirs = [
+        '../app/src/main/java'
+]
+
+task jacocoTestReport(type: JacocoReport, dependsOn: "testDebug") {
+    group = "Reporting"
+
+    description = "Generate Jacoco coverage reports"
+
+    classDirectories = fileTree(
+            dir: '../app/build/intermediates/classes/debug',
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/*$ViewInjector*.*',
+                       '**/BuildConfig.*',
+                       '**/Manifest*.*']
+    )
+
+    additionalSourceDirs = files(coverageSourceDirs)
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files('../app/build/jacoco/testDebug.exec')
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+}
